@@ -37,7 +37,7 @@ def row(extra_classes=""):
 
 @register.simple_tag
 def endrow():
-    return "</div>"
+    return format_html("</div>")
 
 @register.simple_tag
 def col(extra_classes=""):
@@ -45,7 +45,7 @@ def col(extra_classes=""):
 
 @register.simple_tag
 def endcol():
-    return "</div>"
+    return format_html("</div>")
 
 @register.inclusion_tag("blog/post-list.html")
 def recent_posts(post):

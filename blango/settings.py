@@ -54,6 +54,7 @@ class Dev(Configuration):
       'debug_toolbar',
       'rest_framework',
       'rest_framework.authtoken',
+      'drf_yasg',
       'blango_auth',
       'blog',
       'allauth',
@@ -87,6 +88,13 @@ class Dev(Configuration):
   ACCOUNT_ACTIVATION_DAYS = 7
   
   ROOT_URLCONF = 'blango.urls'
+
+  SWAGGER_SETTINGS = {
+        "SECURITY_DEFINITIONS": {
+            "Token": {"type": "apiKey", "name": "Authorization", "in": "header"},
+            "Basic": {"type": "basic"},
+        }
+    }
 
   TEMPLATES = [
       {

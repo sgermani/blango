@@ -13,6 +13,7 @@ import os
 import dj_database_url
 from pathlib import Path
 from configurations import Configuration, values
+from datetime import timedelta
 
 
 class Dev(Configuration):
@@ -151,6 +152,10 @@ class Dev(Configuration):
       },
   ]
 
+  SIMPLE_JWT = {
+        "ACCESS_TOKEN_LIFETIME": timedelta(days=1),
+        "REFRESH_TOKEN_LIFETIME": timedelta(days=7),
+    }
 
   # Internationalization
   # https://docs.djangoproject.com/en/3.2/topics/i18n/
@@ -181,6 +186,7 @@ class Dev(Configuration):
         "rest_framework.authentication.BasicAuthentication",
         "rest_framework.authentication.SessionAuthentication",
         "rest_framework.authentication.TokenAuthentication",
+        "rest_framework_simplejwt.authentication.JWTAuthentication"
     ],
     "DEFAULT_PERMISSION_CLASSES": [
         "rest_framework.permissions.IsAuthenticatedOrReadOnly"

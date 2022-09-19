@@ -59,6 +59,7 @@ class Dev(Configuration):
       'django_filters',
       'blango_auth',
       'blog',
+      'versatileimagefield',
       'allauth',
       'allauth.account',
       'allauth.socialaccount',
@@ -119,6 +120,9 @@ class Dev(Configuration):
 
   WSGI_APPLICATION = 'blango.wsgi.application'
 
+  # Media setup
+  MEDIA_ROOT = BASE_DIR / "media"
+  MEDIA_URL = "/media/"
 
   # Database
   # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
